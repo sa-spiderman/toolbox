@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>实用在线工具箱 - 公众号排版 / 二维码 / JSON</title>
+<meta name="description" content="免费在线工具箱：Markdown 转微信公众号文章、二维码生成器、JSON 格式化工具。纯浏览器端运行，无需上传数据。">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <h1 class="logo">🧰 实用工具箱</h1>
+    <p class="tagline">免费 · 纯本地运行 · 数据不上传服务器</p>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button class="tab active" data-tab="markdown">📝 公众号排版</button>
+  <button class="tab" data-tab="qrcode">📱 二维码生成</button>
+  <button class="tab" data-tab="json">🔧 JSON 格式化</button>
+</nav>
+
+<main class="main">
+
+<!-- Tool: Markdown -> WeChat -->
+<section class="tool-panel active" id="panel-markdown">
+  <div class="panel-header">
+    <h2>Markdown -> 微信公众号文章</h2>
+    <p class="panel-desc">左边写 Markdown，右边实时预览公众号风格排版。一键复制到公众号编辑器。</p>
+  </div>
+  <div class="markdown-container">
+    <div class="md-pane">
+      <div class="pane-toolbar">
+        <label for="md-input">输入 Markdown</label>
+        <button class="btn btn-sm" id="md-clear">清空</button>
+        <button class="btn btn-sm" id="md-load-example">加载示例</button>
+      </div>
+      <textarea id="md-input" class="md-textarea" placeholder="在此粘贴或输入 Markdown..."></textarea>
+    </div>
+    <div class="md-pane">
+      <div class="pane-toolbar">
+        <label>预览（公众号风格）</label>
+        <button class="btn btn-sm btn-primary" id="md-copy">复制到公众号</button>
+      </div>
+      <div class="md-preview" id="md-preview">
+        <div class="placeholder-text">输入 Markdown 后实时预览</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tool: QR Code -->
+<section class="tool-panel" id="panel-qrcode">
+  <div class="panel-header">
+    <h2>二维码生成器</h2>
+    <p class="panel-desc">输入文字或链接，实时生成二维码，可下载 PNG 图片。</p>
+  </div>
+  <div class="qrcode-container">
+    <div class="qrcode-input-area">
+      <label for="qr-input">输入内容：</label>
+      <input type="text" id="qr-input" placeholder="输入网址或文字..." class="qr-input">
+      <div class="qr-options">
+        <label>尺寸：</label>
+        <select id="qr-size">
+          <option value="150">150x150</option>
+          <option value="200" selected>200x200</option>
+          <option value="300">300x300</option>
+          <option value="400">400x400</option>
+        </select>
+      </div>
+    </div>
+    <div class="qrcode-output">
+      <canvas id="qr-canvas" width="200" height="200"></canvas>
+      <button class="btn btn-primary" id="qr-download">下载 PNG</button>
+    </div>
+  </div>
+</section>
+
+<!-- Tool: JSON -->
+<section class="tool-panel" id="panel-json">
+  <div class="panel-header">
+    <h2>JSON 格式化 / 校验</h2>
+    <p class="panel-desc">粘贴 JSON 文本，一键格式化、压缩、校验。数据仅在浏览器端处理。</p>
+  </div>
+  <div class="json-container">
+    <div class="json-input-area">
+      <div class="pane-toolbar">
+        <label for="json-input">输入 JSON</label>
+        <button class="btn btn-sm" id="json-format">格式化</button>
+        <button class="btn btn-sm" id="json-compress">压缩</button>
+        <button class="btn btn-sm" id="json-clear">清空</button>
+      </div>
+      <textarea id="json-input" class="json-textarea" placeholder="{&quot;key&quot;: &quot;value&quot;}"></textarea>
+    </div>
+    <div class="json-output-area">
+      <div class="pane-toolbar">
+        <label>结果</label>
+        <button class="btn btn-sm btn-primary" id="json-copy">复制</button>
+      </div>
+      <pre id="json-output" class="json-output"><span class="placeholder-text">点击"格式化"查看结果</span></pre>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Donation / Sponsor -->
+<section class="donate-section">
+  <div class="donate-inner">
+    <h2>支持我们</h2>
+    <p>如果这个工具帮到了你，欢迎请作者喝杯咖啡<br>（请替换下方的二维码为你的收款码）</p>
+    <div class="donate-qrcodes">
+      <div class="donate-card">
+        <div class="donate-qr-placeholder">放你的微信收款码</div>
+        <p>微信赞赏</p>
+      </div>
+      <div class="donate-card">
+        <div class="donate-qr-placeholder">放你的支付宝收款码</div>
+        <p>支付宝赞赏</p>
+      </div>
+    </div>
+    <p class="donate-tip">部署前，把上方占位图片替换为你自己的收款码截图即可。</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>实用在线工具箱 2026 - 纯前端工具，数据不上传服务器</p>
+</footer>
+
+<script src="js/toolbox.js"></script>
+</body>
+</html>
